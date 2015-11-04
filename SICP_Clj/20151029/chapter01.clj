@@ -121,3 +121,74 @@
 (format "%.10f" (cube-root (cube 0.00001)))
 
 
+; -----------------------------------------------
+; 1.1.8 블랙박스처럼 간추린 프로시저
+; -----------------------------------------------
+
+(defn square [x] (* x x))
+
+;(defn square [x] (exp (double (log x))))
+
+(double 10)
+; => 10
+
+(defn double [x] (+ x x))
+
+(double 10)
+; => 20
+
+(defn sqrt [x]
+  (sqrt-iter 1.0 x))
+
+(defn sqrt-iter [guess x]
+  (if (good-enough? guess x)
+    guess
+    (sqrt-iter (improve guess x) x)))
+
+(defn good-enough? [guess x]
+  (< (abs (- (square guess) x)) 0.001))
+
+(defn improve [guess x]
+  (average guess (/ x guess)))
+
+(defn average [a b]
+  (/ (+ a b)
+     2))
+
+(defn abs [x]
+  (if (>= x 0)
+    x
+    (- x)))
+
+
+;블록 구조
+(defn sqrt [x]
+  (defn good-enough? [guess x]
+    (< (abs (- (square guess) x)) 0.001))
+  (defn improve [guess x]
+    (average guess (/ x guess)))
+  (defn sqrt-iter [guess x]
+    (if (good-enough? guess x)
+      guess
+      (sqrt-iter (improve guess x) x)))
+  (sqrt-iter 1.0 x))
+
+(sqrt 16)
+; => 4
+
+;lexical scoping
+(defn sqrt [x]
+  (defn good-enough? [guess]
+    (< (abs (- (square guess) x)) 0.001))
+  (defn improve [guess]
+    (average guess (/ x guess)))
+  (defn sqrt-iter [guess]
+    (if (good-enough? guess)
+      guess
+      (sqrt-iter (improve guess))))
+  (sqrt-iter 1.0))
+
+(sqrt 16)
+; => 4
+
+
