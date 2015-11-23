@@ -8,6 +8,7 @@ import static org.junit.Assert.*;
  * @author sykim, @date 15. 11. 20 오전 9:53
  */
 public class MoneyTest {
+
 	@Test
 	public void testMultiplication() {
 		Dollar five = new Dollar(5);
@@ -16,4 +17,5 @@ public class MoneyTest {
 		product = five.times(3);
 		assertEquals(15, product.amount);
 	}
+
 }
