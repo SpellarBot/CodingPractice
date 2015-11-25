@@ -8,4 +8,4 @@ SICP
 1.2
 - https://github.com/philo-grammer/CodingPractice/tree/master/SICP_Clj/20151105
 - https://github.com/philo-grammer/CodingPractice/tree/master/SICP_Clj/20151119
- 
+- https://github.com/philo-grammer/CodingPractice/tree/master/SICP_Clj/20151125
