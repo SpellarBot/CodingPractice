@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="LibraryTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2015-11-20T00:53:40" hostname="sykim-MacBook-Pro.local" time="0.003">
-  <properties/>
-  <testcase name="testSomeLibraryMethod" classname="LibraryTest" time="0.003"/>
-  <system-out><![CDATA[]]></system-out>
-  <system-err><![CDATA[]]></system-err>
-</testsuite>
