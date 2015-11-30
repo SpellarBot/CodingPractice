@@ -38,7 +38,7 @@
 
 (defn times-iter [a b]
   (cond (= b 0) 0
-        (even? b) (* (+ a a) (/ b 2))
+        (even? b) (* (double a) (halve b))
         :else (+ a (* a (- b 1)))))
 
 (defn times [a b]
@@ -46,3 +46,4 @@
 
 (times 4 3)
 (times 4 4)
+(times 4 5)
