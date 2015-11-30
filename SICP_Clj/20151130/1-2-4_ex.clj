@@ -9,14 +9,16 @@
 (defn square [n]
   (* n n))
 
-(defn fast-expt [b n]
-  (defn fe-iter [a b n]
-    (cond (= n 0) a
-          (even? n) (fe-iter a (square b) (/ n 2))
-          :else (fe-iter (* a b) b (- n 1)))))
+(defn fe-iter [a b n]
+  (cond (= n 0) a
+        (even? n) (fe-iter a (square b) (/ n 2))
+        :else (fe-iter (* a b) b (- n 1))))
 
-(fast-expt 10 10)
-(fast-expt 10 11)
+(defn fast-expt [b n]
+  (fe-iter 1 b n))
+
+(fast-expt 2 3)
+(fast-expt 2 10)
 
 
 ;------------------------------
@@ -34,8 +36,13 @@
 (defn halve [n]
   (/ n 2))
 
+(defn times-iter [a b]
+  (cond (= b 0) 0
+        (even? b) (* (+ a a) (/ b 2))
+        :else (+ a (* a (- b 1)))))
+
 (defn times [a b]
-  (defn times-iter [z a b]
-    (if (= b 0)
-      product
-      (+ a (times-iter (+ z a) a (- b 1))))))
+  (times-iter a b))
+
+(times 4 3)
+(times 4 4)
