@@ -13,6 +13,7 @@ import org.junit.Test;
 // (V) Dollar side effect -> FP in Scala
 // (V) equality
 // (V) 5CHF X 2 = 10CHF
+// (V) Franc과 Dollar 비교하기
 // amount 필드를 private
 // Money 반올림?
 // hashCode()
@@ -21,6 +22,7 @@ import org.junit.Test;
 // Dollar/Franc 중복
 // 공용 equals
 // 공용 times
+// 통화?
 
 // 1.red
 // 2.green
@@ -49,12 +51,9 @@ public class MoneyTest {
 		Franc franc = new Franc(5);
 		assertTrue(new Franc(5).equals(franc));
 		assertFalse(new Franc(6).equals(franc));
-/*
-		// 아래처럼 해도 테스트 가능
-		Dollar dollar = new Dollar(5);
-		assertTrue(new Dollar(5).equals(dollar));
-		assertFalse(new Dollar(6).equals(dollar));
-*/
+
+		assertFalse(new Franc(5).equals(new Dollar(5)));
+
 	}
 	
 	@Test
