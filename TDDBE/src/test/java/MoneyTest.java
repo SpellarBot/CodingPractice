@@ -1,6 +1,6 @@
 import static org.junit.Assert.*;
 
-import tddbe.Money;
+//import tddbe.Money;
 import tddbe.Dollar;
 import tddbe.Franc;
 
@@ -29,11 +29,6 @@ import org.junit.Test;
 // 3.refactoring (중복 제거 + 의미를 드러내기)
 
 public class MoneyTest {
-
-	@Test
-	public void testSample() {
-//		assertEquals(Dollar(5), Dollar(5) + Franc(10));
-	}
 
 	@Test
 	public void testMultiplication() {
