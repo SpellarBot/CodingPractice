@@ -1,6 +1,6 @@
 import static org.junit.Assert.*;
 
-//import tddbe.Money;
+import tddbe.Money;
 import tddbe.Dollar;
 import tddbe.Franc;
 
@@ -14,15 +14,16 @@ import org.junit.Test;
 // (V) equality
 // (V) 5CHF X 2 = 10CHF
 // (V) Franc과 Dollar 비교하기
+// (V) 공용 equals
 // amount 필드를 private
 // Money 반올림?
 // hashCode()
 // Equal null
 // Equal object -> 달러가 아닌게 들어오면?
 // Dollar/Franc 중복
-// 공용 equals
 // 공용 times
 // 통화?
+// testFrancMultiplication을 지워야 할까?
 
 // 1.red
 // 2.green
@@ -32,30 +33,30 @@ public class MoneyTest {
 
 	@Test
 	public void testMultiplication() {
-		Dollar five = new Dollar(5);
-		assertEquals(new Dollar(10), five.times(2));
-		assertEquals(new Dollar(15), five.times(3));
+		Money five = Money.dollar(5);
+		assertEquals(Money.dollar(10), five.times(2));
+		assertEquals(Money.dollar(15), five.times(3));
 	}
 
 	@Test
 	public void testEquality() {
 		
-		assertTrue(new Dollar(5).equals(new Dollar(5)));
-		assertFalse(new Dollar(5).equals(new Dollar(6)));
+		assertTrue(Money.dollar(5).equals(Money.dollar(5)));
+		assertFalse(Money.dollar(5).equals(Money.dollar(6)));
 
-		Franc franc = new Franc(5);
-		assertTrue(new Franc(5).equals(franc));
-		assertFalse(new Franc(6).equals(franc));
+		Money franc = Money.franc(5);
+		assertTrue(Money.franc(5).equals(franc));
+		assertFalse(Money.franc(6).equals(franc));
 
-		assertFalse(new Franc(5).equals(new Dollar(5)));
+		assertFalse(Money.franc(5).equals(Money.dollar(5)));
 
 	}
 	
 	@Test
 	public void testFrancMultiplication() {
-		Franc five = new Franc(5);
-		assertEquals(new Franc(10), five.times(2));
-		assertEquals(new Franc(15), five.times(3));
+		Money five = Money.franc(5);
+		assertEquals(Money.franc(10), five.times(2));
+		assertEquals(Money.franc(15), five.times(3));
 	}
 
 }
