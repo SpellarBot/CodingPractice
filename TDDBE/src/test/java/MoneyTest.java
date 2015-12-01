@@ -1,8 +1,8 @@
 import static org.junit.Assert.*;
 
 import tddbe.Money;
-import tddbe.Dollar;
-import tddbe.Franc;
+//import tddbe.Dollar;
+//import tddbe.Franc;
 
 import org.junit.Test;
 
