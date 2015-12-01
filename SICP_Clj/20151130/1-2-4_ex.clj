@@ -31,20 +31,32 @@
     (+ a (* a (- b 1)))))
 
 (defn double [n]
-  (* 2 n))
+  (+ n n))
 
 (defn halve [n]
   (/ n 2))
 
-(defn times-iter [a b]
+(defn * [a b]
   (cond (= b 0) 0
         (even? b) (* (double a) (halve b))
         :else (+ a (* a (- b 1)))))
 
+(* 4 3)
+(* 4 4)
+(* 4 5)
+
+;------------------------------
+; 연습문제 1.18
+;------------------------------
+
+(defn times-iter [sum a b]
+  (cond (= b 0) sum
+        (even? b) (times-iter sum (double a) (halve b))
+        :else (times-iter (+ sum a) a (- b 1))))
+
 (defn times [a b]
-  (times-iter a b))
+  (times-iter 0 a b))
 
-(times 4 3)
-(times 4 4)
-(times 4 5)
-
+(times 3 4)
+(times 3 5)
+(times 3 6)
