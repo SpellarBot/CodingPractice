@@ -3,8 +3,8 @@
 ### 시작하기
 
 `
- $ gradle init --type java-library
- $ gradle build
+ $ gradle init --type java-library  
+ $ gradle build  
  $ gradle test
 `
 
