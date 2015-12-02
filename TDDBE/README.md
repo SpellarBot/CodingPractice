@@ -2,11 +2,11 @@
 
 ### 시작하기
 
-`
+```
   $ gradle init --type java-library  
   $ gradle build  
   $ gradle test
-`
+```
 
 ### 일지
 - 20151202 - 9장 완료
