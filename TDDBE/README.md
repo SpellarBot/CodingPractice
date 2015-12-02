@@ -3,9 +3,9 @@
 ### 시작하기
 
 `
- $ gradle init --type java-library  
- $ gradle build  
- $ gradle test
+  $ gradle init --type java-library  
+  $ gradle build  
+  $ gradle test
 `
 
 ### 일지
