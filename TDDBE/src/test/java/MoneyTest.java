@@ -1,8 +1,6 @@
 import static org.junit.Assert.*;
 
 import tddbe.Money;
-//import tddbe.Dollar;
-//import tddbe.Franc;
 
 import org.junit.Test;
 
@@ -15,6 +13,7 @@ import org.junit.Test;
 // (V) 5CHF X 2 = 10CHF
 // (V) Franc과 Dollar 비교하기
 // (V) 공용 equals
+// (V) 통화?
 // amount 필드를 private
 // Money 반올림?
 // hashCode()
@@ -61,8 +60,8 @@ public class MoneyTest {
 
 	@Test
 	public void testCurrency() {
-		assertEquals("USD", Money.dollar(1).currency);
-		assertEquals("CHF", Money.franc(1).currency);
+		assertEquals("USD", Money.dollar(1).currency());
+		assertEquals("CHF", Money.franc(1).currency());
 	}
 
 }

@@ -24,7 +24,7 @@ public abstract class Money {
 		return new Franc(amount, "CHF");
 	}
 
-	public abstract Money times(int multiplier, String currency);
+	public abstract Money times(int multiplier);
 
 	public String currency() {
 		return currency;
