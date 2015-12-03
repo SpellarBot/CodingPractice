@@ -1,7 +1,6 @@
 import static org.junit.Assert.*;
-
 import tddbe.Money;
-
+import tddbe.Franc;
 import org.junit.Test;
 
 // < To do list >
@@ -21,7 +20,6 @@ import org.junit.Test;
 // Equal object -> 달러가 아닌게 들어오면?
 // Dollar/Franc 중복
 // 공용 times
-// 통화?
 // testFrancMultiplication을 지워야 할까?
 
 // 1.red
@@ -62,6 +60,11 @@ public class MoneyTest {
 	public void testCurrency() {
 		assertEquals("USD", Money.dollar(1).currency());
 		assertEquals("CHF", Money.franc(1).currency());
+	}
+
+	@Test
+	public void testDifferentClassEquality() {
+		assertTrue(new Money(10, "CHF").equals(new Franc(10, "CHF")));
 	}
 
 }
