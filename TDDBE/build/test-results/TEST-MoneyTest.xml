@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="MoneyTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2015-12-04T13:15:32" hostname="sykim-MacBook-Pro.local" time="0.004">
+<testsuite name="MoneyTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2015-12-04T13:44:06" hostname="sykim-MacBook-Pro.local" time="0.006">
   <properties/>
-  <testcase name="testMultiplication" classname="MoneyTest" time="0.002"/>
+  <testcase name="testMultiplication" classname="MoneyTest" time="0.005"/>
   <testcase name="testCurrency" classname="MoneyTest" time="0.001"/>
   <testcase name="testEquality" classname="MoneyTest" time="0.0"/>
   <system-out><![CDATA[]]></system-out>
