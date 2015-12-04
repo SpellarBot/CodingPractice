@@ -14,6 +14,7 @@ public class Money {
 		Money money = (Money) object;
 		return amount == money.amount 
 				&& currency().equals(money.currency());
+				// currency() == money.currency(); 도 가능
 	}
 
 	public static Money dollar(int amount) {
