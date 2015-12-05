@@ -12,6 +12,7 @@ import org.junit.Test;
 // (V) Franc과 Dollar 비교하기
 // (V) 공용 equals
 // (V) 통화?
+// (V) testFrancMultiplication을 지워야 할까?
 // amount 필드를 private
 // Money 반올림?
 // hashCode()
@@ -19,7 +20,6 @@ import org.junit.Test;
 // Equal object -> 달러가 아닌게 들어오면?
 // Dollar/Franc 중복
 // 공용 times
-// (V) testFrancMultiplication을 지워야 할까?
 
 // 1.red
 // 2.green
