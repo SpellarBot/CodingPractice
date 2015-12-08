@@ -25,3 +25,7 @@
   (= n (smallest-divisor n)))
 
 (prime? 5)
+
+
+; 페르마 검사
+
