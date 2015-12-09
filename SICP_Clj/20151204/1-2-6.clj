@@ -29,3 +29,24 @@
 
 ; 페르마 검사
 
+(defn expmod [base exp m]
+  (cond (= exp 0) 1
+        (even? exp) (mod (square (expmod base (/ exp 2) m)))
+        :else (mod (* base (expmod base (- exp 1) m))
+                   m)))
+
+(expmod 1 1 1)
+(expmod 1 1 2)
+(expmod 1 1 3)
+
+(map (fn [x] [x (expmod 10 1 x)]) (range 1 11))
+
+(defn fermat-test [n]
+  (defn try-it [a]
+    (= (expmod a n n) a))
+  (try-it (+ 1 (rand-int (- n 1)))))
+
+(defn fast-prime? [n times]
+  (cond (= times 0) true
+        (fermat-test n) (fast-prime? n (- times 1))
+        :else false))
