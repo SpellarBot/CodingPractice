@@ -1,8 +1,12 @@
-import static org.junit.Assert.*;
-import tddbe.Money;
-import tddbe.Expression;
-import tddbe.Bank;
 import org.junit.Test;
+import tddbe.Bank;
+import tddbe.Expression;
+import tddbe.Money;
+import tddbe.Sum;
+
+import static junit.framework.TestCase.assertFalse;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 // < To do list >
 //
@@ -15,6 +19,7 @@ import org.junit.Test;
 // (V) 공용 equals
 // (V) 통화?
 // (V) testFrancMultiplication을 지워야 할까?
+// (V) Bank.reduce(Money)
 // amount 필드를 private
 // Money 반올림?
 // hashCode()
@@ -22,6 +27,10 @@ import org.junit.Test;
 // Equal object -> 달러가 아닌게 들어오면?
 // Dollar/Franc 중복
 // 공용 times
+// $5 + $5 = $10
+// $5 + $5 에서 Money 반환하기
+// Money에 대한 통화 변환을 수행하는 Reduce
+// Reduce(Bank, String)
 
 // 1.red
 // 2.green
@@ -50,12 +59,36 @@ public class MoneyTest {
 	}
 
 	@Test
-	public void testSimpleAddition() {
-		Money five = Money.dollar(5);
-		Expression sum = five.plus(five);
-		Bank bank = new Bank();
-		Money reduced = bank.reduce(sum, "USD");
-		assertEquals(Money.dollar(10), reduced);
-	}
+    public void testSimpleAddition() {
+        Money five = Money.dollar(5);
+        Expression sum = five.plus(five);
+        Bank bank = new Bank();
+        Money reduced = bank.reduce(sum, "USD");
+        assertEquals(Money.dollar(10), reduced);
+    }
+
+    @Test
+    public void testPlusReturnsSum() {
+        Money five = Money.dollar(5);
+        Expression result = five.plus(five);
+        Sum sum = (Sum) result;
+        assertEquals(five, sum.augend);
+        assertEquals(five, sum.addend);
+    }
+
+    @Test
+    public void testReduceSum() {
+        Expression sum = new Sum(Money.dollar(3), Money.dollar(4));
+        Bank bank = new Bank();
+        Money result = bank.reduce(sum, "USD");
+        assertEquals(Money.dollar(7), result);
+    }
+
+    @Test
+    public void testReduceMoney() {
+        Bank bank = new Bank();
+        Money result = bank.reduce(Money.dollar(1), "USD");
+        assertEquals(Money.dollar(1), result);
+    }
 
 }

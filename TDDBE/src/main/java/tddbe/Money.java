@@ -30,7 +30,7 @@ public class Money implements Expression {
 	}
 
 	public Expression plus(Money addend) {
-		return new Money(amount + addend.amount, currency);
+		return new Sum(this, addend);
 	}
 
 	public String currency() {
@@ -40,4 +40,8 @@ public class Money implements Expression {
 	public String toString() {
 		return amount + " " + currency;
 	}
+
+	public Money reduce(String to) {
+        return this;
+    }
 }
