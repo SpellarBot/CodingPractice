@@ -5,6 +5,7 @@ import tddbe.Money;
 import tddbe.Sum;
 
 import static junit.framework.TestCase.assertFalse;
+import static org.junit.Assert.assertArrayEquals;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
@@ -97,6 +98,11 @@ public class MoneyTest {
         bank.addRate("CHF", "USD", 2);
         Money result = bank.reduce(Money.franc(2), "USD");
         assertEquals(Money.dollar(1), result);
+    }
+
+    @Test
+    public void testArrayEquals() {
+        assertArrayEquals(new Object[] {"abc"}, new Object[] {"abc"});
     }
 
     @Test
