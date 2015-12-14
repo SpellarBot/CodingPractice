@@ -20,6 +20,9 @@ import static org.junit.Assert.assertTrue;
 // (V) 통화?
 // (V) testFrancMultiplication을 지워야 할까?
 // (V) Bank.reduce(Money)
+// (V) $5 + $5 = $10
+// (V)Money에 대한 통화 변환을 수행하는 Reduce
+// (V) Reduce(Bank, String)
 // amount 필드를 private
 // Money 반올림?
 // hashCode()
@@ -27,10 +30,7 @@ import static org.junit.Assert.assertTrue;
 // Equal object -> 달러가 아닌게 들어오면?
 // Dollar/Franc 중복
 // 공용 times
-// $5 + $5 = $10
 // $5 + $5 에서 Money 반환하기
-// Money에 대한 통화 변환을 수행하는 Reduce
-// Reduce(Bank, String)
 
 // 1.red
 // 2.green
@@ -38,9 +38,9 @@ import static org.junit.Assert.assertTrue;
 
 public class MoneyTest {
 
-	@Test
-	public void testMultiplication() {
-		Money five = Money.dollar(5);
+    @Test
+    public void testMultiplication() {
+        Money five = Money.dollar(5);
 		assertEquals(Money.dollar(10), five.times(2));
 		assertEquals(Money.dollar(15), five.times(3));
 	}
@@ -50,10 +50,10 @@ public class MoneyTest {
 		assertTrue(Money.dollar(5).equals(Money.dollar(5)));
 		assertFalse(Money.dollar(5).equals(Money.dollar(6)));
 		assertFalse(Money.franc(5).equals(Money.dollar(5)));
-	}
-	
-	@Test
-	public void testCurrency() {
+    }
+
+    @Test
+    public void testCurrency() {
 		assertEquals("USD", Money.dollar(1).currency());
 		assertEquals("CHF", Money.franc(1).currency());
 	}
@@ -91,4 +91,16 @@ public class MoneyTest {
         assertEquals(Money.dollar(1), result);
     }
 
+    @Test
+    public void testReduceMoneyDifferentCurrency() {
+        Bank bank = new Bank();
+        bank.addRate("CHF", "USD", 2);
+        Money result = bank.reduce(Money.franc(2), "USD");
+        assertEquals(Money.dollar(1), result);
+    }
+
+    @Test
+    public void testIdentityRate() {
+        assertEquals(1, new Bank().rate("USD", "USD"));
+    }
 }
