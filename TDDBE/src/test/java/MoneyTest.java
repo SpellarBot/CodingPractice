@@ -1,3 +1,4 @@
+//import junit.framework.Assert;
 import org.junit.Test;
 import tddbe.Bank;
 import tddbe.Expression;
@@ -24,6 +25,8 @@ import static org.junit.Assert.assertTrue;
 // (V) $5 + $5 = $10
 // (V)Money에 대한 통화 변환을 수행하는 Reduce
 // (V) Reduce(Bank, String)
+// (V) Sum.Plus
+// (V) Expression.times
 // amount 필드를 private
 // Money 반올림?
 // hashCode()
@@ -32,8 +35,6 @@ import static org.junit.Assert.assertTrue;
 // Dollar/Franc 중복
 // 공용 times
 // $5 + $5 에서 Money 반환하기
-// Sum.Plus
-// Expression.times
 
 // 1.red
 // 2.green
@@ -121,4 +122,27 @@ public class MoneyTest {
         Money result = bank.reduce(fiveBucks.plus(tenFrancs), "USD");
         assertEquals(Money.dollar(10), result);
     }
+
+    @Test
+    public void testSumPlusMoney() {
+        Expression fiveBucks = Money.dollar(5);
+        Expression tenFrancs = Money.franc(10);
+        Bank bank = new Bank();
+        bank.addRate("CHF", "USD", 2);
+        Expression sum = new Sum(fiveBucks, tenFrancs).plus(fiveBucks);
+        Money result = bank.reduce(sum, "USD");
+        assertEquals(Money.dollar(15), result);
+    }
+
+    @Test
+    public void testSumTimes() {
+        Expression fiveBucks = Money.dollar(5);
+        Expression tenFrancs = Money.franc(10);
+        Bank bank = new Bank();
+        bank.addRate("CHF", "USD", 2);
+        Expression sum = new Sum(fiveBucks, tenFrancs).times(2);
+        Money result = bank.reduce(sum, "USD");
+        assertEquals(Money.dollar(20), result);
+    }
+
 }
