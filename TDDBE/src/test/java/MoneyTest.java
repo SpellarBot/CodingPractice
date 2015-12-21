@@ -11,7 +11,7 @@ import static org.junit.Assert.assertTrue;
 
 // < To do list >
 //
-// $5 + 10CHF = $10 (환율 2:1)
+// (V) $5 + 10CHF = $10 (환율 2:1)
 // (V) $5 * 2 = $10
 // (V) Dollar side effect -> FP in Scala
 // (V) equality
@@ -32,6 +32,8 @@ import static org.junit.Assert.assertTrue;
 // Dollar/Franc 중복
 // 공용 times
 // $5 + $5 에서 Money 반환하기
+// Sum.Plus
+// Expression.times
 
 // 1.red
 // 2.green
@@ -108,5 +110,15 @@ public class MoneyTest {
     @Test
     public void testIdentityRate() {
         assertEquals(1, new Bank().rate("USD", "USD"));
+    }
+
+    @Test
+    public void testMixedAddition() {
+        Expression fiveBucks = Money.dollar(5);
+        Expression tenFrancs = Money.franc(10);
+        Bank bank = new Bank();
+        bank.addRate("CHF", "USD", 2);
+        Money result = bank.reduce(fiveBucks.plus(tenFrancs), "USD");
+        assertEquals(Money.dollar(10), result);
     }
 }

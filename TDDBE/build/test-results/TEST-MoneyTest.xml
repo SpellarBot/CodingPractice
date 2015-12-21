@@ -1,16 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="MoneyTest" tests="10" skipped="0" failures="0" errors="0" timestamp="2015-12-14T12:07:44" hostname="sykim-MacBook-Pro.local" time="0.1">
+<testsuite name="MoneyTest" tests="11" skipped="0" failures="0" errors="0" timestamp="2015-12-21T13:22:09" hostname="sykim-MacBook-Pro.local" time="0.079">
   <properties/>
-  <testcase name="testReduceSum" classname="MoneyTest" time="0.005"/>
-  <testcase name="testSimpleAddition" classname="MoneyTest" time="0.002"/>
+  <testcase name="testReduceSum" classname="MoneyTest" time="0.006"/>
+  <testcase name="testSimpleAddition" classname="MoneyTest" time="0.001"/>
   <testcase name="testMultiplication" classname="MoneyTest" time="0.001"/>
-  <testcase name="testArrayEquals" classname="MoneyTest" time="0.024"/>
-  <testcase name="testReduceMoney" classname="MoneyTest" time="0.001"/>
-  <testcase name="testIdentityRate" classname="MoneyTest" time="0.0"/>
+  <testcase name="testArrayEquals" classname="MoneyTest" time="0.011"/>
+  <testcase name="testMixedAddition" classname="MoneyTest" time="0.009"/>
+  <testcase name="testReduceMoney" classname="MoneyTest" time="0.0"/>
+  <testcase name="testIdentityRate" classname="MoneyTest" time="0.002"/>
   <testcase name="testCurrency" classname="MoneyTest" time="0.0"/>
-  <testcase name="testEquality" classname="MoneyTest" time="0.006"/>
-  <testcase name="testPlusReturnsSum" classname="MoneyTest" time="0.004"/>
-  <testcase name="testReduceMoneyDifferentCurrency" classname="MoneyTest" time="0.002"/>
+  <testcase name="testEquality" classname="MoneyTest" time="0.004"/>
+  <testcase name="testPlusReturnsSum" classname="MoneyTest" time="0.005"/>
+  <testcase name="testReduceMoneyDifferentCurrency" classname="MoneyTest" time="0.0"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>
