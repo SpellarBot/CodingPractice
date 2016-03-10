@@ -41,6 +41,7 @@
     (+ (<term> a)
        (<term> (<next> a b)))))
 
+; 4
 (defn next [a]
   (+ a 1))
 
@@ -51,3 +52,44 @@
        (sum term (next a) next b))))
 
 (sum cube 1 next 2)
+
+; 5
+(defn inc [n]
+  (+ n 1))
+
+(defn sum-cubes-2 [a b]
+  (sum cube a inc b))
+
+(sum-cubes-2 1 10)
+
+; 6
+(defn indentity [x]
+  x)
+
+(defn sum-integers-2 [a b]
+  (sum indentity a inc b))
+
+(sum-integers-2 1 10)
+
+; 7
+(defn pi-sum-2 [a b]
+  (defn pi-term [x]
+    (/ 1.0 (* x (+ x 2))))
+  (defn pi-next [x]
+    (+ x 4))
+  (sum pi-term a pi-next b))
+
+(* 8 (pi-sum-2 1 1000))
+
+; 8
+(defn integral [f a b dx]
+  (defn add-dx [x] (+ x dx))
+  (* (sum f (+ a (/ dx 2.0)) add-dx b)
+     dx))
+
+(integral cube 0 1 0.01)
+
+(integral cube 0 1 0.001)
+
+
+
